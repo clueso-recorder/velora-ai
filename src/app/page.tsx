@@ -1,4 +1,5 @@
 import {
+  ArrowRightIcon,
   CheckIcon,
   GaugeIcon,
   LayersIcon,
@@ -177,7 +178,7 @@ export default function Home() {
           <BlurFade delay={0.5}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <ShimmerButton>
-                <RocketIcon className="size-4" />
+                <ArrowRightIcon className="size-4" />
                 Start building free
               </ShimmerButton>
               <Button variant="ghost" size="lg" asChild>
