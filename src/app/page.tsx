@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   CheckIcon,
   GaugeIcon,
@@ -131,6 +132,14 @@ const proFeatures = [
   "Figma source file",
   "Waitlist, newsletter & Stripe wiring",
   "Private registry + lifetime updates",
+];
+
+const enterpriseFeatures = [
+  "Everything in Pro",
+  "Custom licensing & procurement",
+  "Dedicated success manager",
+  "SLA-backed priority support",
+  "Volume seats & private deployments",
 ];
 
 export default function Home() {
