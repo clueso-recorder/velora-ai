@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckIcon, MinusIcon, RocketIcon } from "lucide-react";
+import { CheckIcon, MailIcon, MinusIcon, RocketIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -40,6 +40,16 @@ const proFeatures = [
   "Team license included",
   "Private registry + lifetime updates",
   "Priority support",
+];
+
+const enterpriseFeatures = [
+  "Everything in Pro",
+  "SSO / SAML & SCIM provisioning",
+  "Unlimited seats & custom licensing",
+  "Dedicated design engineer",
+  "Custom components on request",
+  "SLA-backed priority support",
+  "Security review & invoicing",
 ];
 
 const comparison: {
@@ -108,7 +118,7 @@ export default function PricingPage() {
 
       {/* Plans */}
       <section className="pb-24">
-        <div className="mx-auto grid max-w-4xl gap-6 px-4 md:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
           <BlurFade>
             <div className="flex h-full flex-col rounded-2xl border bg-card p-8">
               <h2 className="text-lg font-semibold">Free</h2>
@@ -176,6 +186,39 @@ export default function PricingPage() {
                 <RocketIcon className="size-4" />
                 Join the waitlist
               </ShimmerButton>
+            </div>
+          </BlurFade>
+
+          <BlurFade delay={0.24}>
+            <div className="flex h-full flex-col rounded-2xl border bg-card p-8">
+              <h2 className="text-lg font-semibold">Enterprise</h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                For organizations that need security reviews, scale and a direct
+                line to us.
+              </p>
+              <p className="mt-6 text-5xl font-semibold tracking-tight">
+                Custom
+                <span className="text-base font-normal text-muted-foreground">
+                  {" "}
+                  pricing
+                </span>
+              </p>
+              <ul className="mt-8 flex-1 space-y-3 text-sm">
+                {enterpriseFeatures.map((f) => (
+                  <li key={f} className="flex items-center gap-3">
+                    <span className="flex size-5 items-center justify-center rounded-full bg-primary/15 text-primary">
+                      <CheckIcon className="size-3" />
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Button size="lg" className="mt-8 w-full rounded-full" asChild>
+                <Link href="/contact">
+                  <MailIcon className="size-4" />
+                  Contact sales
+                </Link>
+              </Button>
             </div>
           </BlurFade>
         </div>
