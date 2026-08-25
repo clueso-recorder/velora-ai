@@ -42,6 +42,16 @@ const proFeatures = [
   "Priority support",
 ];
 
+const enterpriseFeatures = [
+  "Everything in Pro, plus volume licensing",
+  "SSO / SAML and SCIM provisioning",
+  "Dedicated success manager",
+  "Custom SLAs and security reviews",
+  "Private registry and design-system onboarding",
+  "Procurement-ready invoicing",
+  "24/7 priority support",
+];
+
 const comparison: {
   feature: string;
   free: boolean | string;
@@ -108,7 +118,7 @@ export default function PricingPage() {
 
       {/* Plans */}
       <section className="pb-24">
-        <div className="mx-auto grid max-w-4xl gap-6 px-4 md:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
           <BlurFade>
             <div className="flex h-full flex-col rounded-2xl border bg-card p-8">
               <h2 className="text-lg font-semibold">Free</h2>
@@ -176,6 +186,40 @@ export default function PricingPage() {
                 <RocketIcon className="size-4" />
                 Join the waitlist
               </ShimmerButton>
+            </div>
+          </BlurFade>
+
+          <BlurFade delay={0.24}>
+            <div className="flex h-full flex-col rounded-2xl border bg-card p-8">
+              <h2 className="text-lg font-semibold">Enterprise</h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Security, scale, and a dedicated partner for large orgs.
+              </p>
+              <p className="mt-6 text-5xl font-semibold tracking-tight">
+                Custom
+                <span className="text-base font-normal text-muted-foreground">
+                  {" "}
+                  quote
+                </span>
+              </p>
+              <ul className="mt-8 flex-1 space-y-3 text-sm">
+                {enterpriseFeatures.map((f) => (
+                  <li key={f} className="flex items-center gap-3">
+                    <span className="flex size-5 items-center justify-center rounded-full bg-primary/15 text-primary">
+                      <CheckIcon className="size-3" />
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Button
+                variant="outline"
+                size="lg"
+                className="mt-8 w-full rounded-full"
+                asChild
+              >
+                <Link href="/contact">Talk to sales</Link>
+              </Button>
             </div>
           </BlurFade>
         </div>
