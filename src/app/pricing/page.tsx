@@ -138,7 +138,7 @@ export default function PricingPage() {
                 className="mt-8 w-full rounded-full"
                 asChild
               >
-                <Link href="/components">Browse components</Link>
+                <Link href="/components">Explore components</Link>
               </Button>
             </div>
           </BlurFade>
