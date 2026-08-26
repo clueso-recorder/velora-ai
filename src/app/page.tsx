@@ -178,7 +178,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <ShimmerButton>
                 <RocketIcon className="size-4" />
-                Get started — it&apos;s free
+                Start building free
               </ShimmerButton>
               <Button variant="ghost" size="lg" asChild>
                 <a href="#features">Browse components</a>
