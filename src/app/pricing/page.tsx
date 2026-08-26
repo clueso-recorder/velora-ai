@@ -3,15 +3,10 @@ import Link from "next/link";
 import { CheckIcon, MinusIcon, RocketIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
+import { PricingFaq, pricingFaqs } from "@/components/template/pricing-faq";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { BorderBeam } from "@/components/velora/border-beam";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
@@ -60,25 +55,6 @@ const comparison: {
   { feature: "License", free: "MIT", pro: "Commercial" },
 ];
 
-const faqs = [
-  {
-    q: "Is the free tier really enough to ship?",
-    a: "Yes. Everything on this site — every animation, page and section — is the free tier. If your product needs one great landing site, you never have to pay us anything.",
-  },
-  {
-    q: "Is Pro a subscription?",
-    a: "No. Pro is a one-time payment with lifetime access and lifetime updates. No renewals, no seat counting for small teams.",
-  },
-  {
-    q: "How does this compare to Magic UI Pro or Aceternity Pro?",
-    a: "Those run $169–$199 for templates and sections. Velora gives away a complete multi-page template for free and prices Pro at $99 — with a team license included instead of sold separately.",
-  },
-  {
-    q: "What happens when Pro launches?",
-    a: "Waitlist members get launch pricing and early access. The free tier stays free forever — Pro only ever adds breadth on top.",
-  },
-];
-
 function Cell({ value }: { value: boolean | string }) {
   if (value === true)
     return (
@@ -92,8 +68,27 @@ function Cell({ value }: { value: boolean | string }) {
 }
 
 export default function PricingPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: pricingFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <main className="relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteHeader />
 
       <PageHeader
@@ -220,28 +215,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="pb-28">
-        <div className="mx-auto max-w-3xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="text-center text-3xl font-semibold tracking-tight">
-              Pricing questions
-            </h2>
-            <Accordion type="single" collapsible className="mt-10">
-              {faqs.map((faq) => (
-                <AccordionItem key={faq.q} value={faq.q}>
-                  <AccordionTrigger className="text-left text-base">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </BlurFade>
-        </div>
-      </section>
+      <PricingFaq className="pt-8 pb-28 lg:pt-12 lg:pb-32" />
 
       <SiteFooter />
     </main>

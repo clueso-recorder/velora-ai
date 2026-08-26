@@ -21,6 +21,7 @@ import {
 import { ActivityList } from "@/components/demo/activity-list";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { PricingFaq } from "@/components/template/pricing-faq";
 import { HeroMockup } from "@/components/demo/hero-mockup";
 import { IntegrationsBeam } from "@/components/demo/integrations-beam";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
@@ -99,10 +100,6 @@ const testimonials = [
 ];
 
 const faqs = [
-  {
-    q: "Is Velora UI really free?",
-    a: "Yes — every component and the full landing template are MIT licensed. Use them in personal and commercial projects, no attribution required.",
-  },
   {
     q: "How is this different from Magic UI?",
     a: "Velora ships complete, assembled landing pages — not just isolated components. Every animation respects prefers-reduced-motion, causes zero layout shift, and is tuned for mobile.",
@@ -571,12 +568,14 @@ export default function Home() {
         </div>
       </section>
 
+      <PricingFaq className="pt-0" />
+
       {/* FAQ */}
       <section id="faq" className="py-24 lg:py-32">
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <BlurFade>
             <h2 className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
-              Frequently asked questions
+              Product questions
             </h2>
           </BlurFade>
           <BlurFade delay={0.15}>
