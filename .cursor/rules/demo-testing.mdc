@@ -1,0 +1,10 @@
+---
+description: Project testing conventions
+alwaysApply: true
+---
+
+Reuse this repository's existing test framework. Do not introduce a new one.
+
+Follow `src/components/theme-toggle.tsx` for this project's component conventions.
+
+After behavior changes, run the project's existing verification command and report the exact command and its result. If the repository has no test script, say so instead of inventing one.
