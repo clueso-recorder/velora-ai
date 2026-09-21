@@ -133,6 +133,30 @@ pnpm lint             # eslint
 pnpm registry:build   # component stats + registry.json + public/r/*.json + llms.txt
 ```
 
+## Health endpoint
+
+`GET /health` is a Route Handler for liveness checks. It returns JSON with process uptime (seconds) and the app version from `package.json`:
+
+```json
+{
+  "uptime": 12.34,
+  "version": "0.1.0"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `uptime` | number | Seconds since the Node process started (`process.uptime()`) |
+| `version` | string | `version` field from `package.json` |
+
+The handler is marked `force-static` so it stays compatible with the Cloudflare Pages static export (`output: "export"`). After `pnpm build`, the response is emitted as `out/health`.
+
+With the dev server running (`pnpm dev`):
+
+```bash
+curl http://localhost:3000/health
+```
+
 ## Stack
 
 Next.js 16 · React 19 · Tailwind CSS 4 · shadcn/ui · Motion · TypeScript
