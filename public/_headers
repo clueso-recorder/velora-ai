@@ -4,6 +4,11 @@
   Content-Type: image/png
   Cache-Control: public, max-age=3600
 
+# Health JSON is exported as `/health` with no extension.
+/health
+  Content-Type: application/json
+  Cache-Control: no-store
+
 # Registry JSON is fetched cross-origin by installers and web playgrounds.
 /r/*
   Access-Control-Allow-Origin: *
