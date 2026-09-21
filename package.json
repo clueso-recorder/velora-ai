@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "vitest run",
     "registry:build": "node scripts/component-stats.mjs && node scripts/build-registry.mjs && shadcn build"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.1"
   }
 }
