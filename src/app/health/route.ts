@@ -4,7 +4,7 @@ export const dynamic = "force-static";
 
 export function GET() {
   return Response.json({
-    uptime: process.uptime(),
+    uptime: Math.round(process.uptime() * 100) / 100,
     version: packageJson.version,
   });
 }

@@ -20,5 +20,6 @@ describe("GET /health", () => {
     const { uptime } = body as { uptime: number };
     expect(Number.isFinite(uptime)).toBe(true);
     expect(uptime).toBeGreaterThanOrEqual(0);
+    expect(uptime).toBe(Math.round(uptime * 100) / 100);
   });
 });
