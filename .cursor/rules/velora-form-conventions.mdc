@@ -1,0 +1,11 @@
+---
+description: Velora form conventions
+alwaysApply: true
+---
+
+# Velora form conventions
+
+- Reuse the shared Input, Label, Textarea, and Button components already used in `src/components/template/contact-form.tsx`.
+- Use existing semantic color tokens and spacing patterns; avoid new hard-coded colors.
+- Associate helper text with its input using a stable id and `aria-describedby`.
+- Preserve native required/email validation and the frontend-only demo disclosure unless the task explicitly changes them.
