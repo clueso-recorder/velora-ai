@@ -229,7 +229,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="pb-28">
+      <section id="faq" className="scroll-mt-24 pb-28">
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <BlurFade>
             <p className="text-center text-sm font-medium text-primary">FAQ</p>
