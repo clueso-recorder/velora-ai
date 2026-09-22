@@ -12,15 +12,10 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ActivityList } from "@/components/demo/activity-list";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { FaqSection } from "@/components/template/faq-section";
 import { HeroMockup } from "@/components/demo/hero-mockup";
 import { IntegrationsBeam } from "@/components/demo/integrations-beam";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
@@ -571,30 +566,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="py-24 lg:py-32">
-        <div className="mx-auto max-w-3xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
-              Frequently asked questions
-            </h2>
-          </BlurFade>
-          <BlurFade delay={0.15}>
-            <Accordion type="single" collapsible className="mt-12">
-              {faqs.map((faq) => (
-                <AccordionItem key={faq.q} value={faq.q}>
-                  <AccordionTrigger className="text-left text-base">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </BlurFade>
-        </div>
-      </section>
+      <FaqSection
+        id="faq"
+        title="Frequently asked questions"
+        items={faqs}
+      />
 
       {/* CTA */}
       <section className="relative overflow-hidden py-24 lg:py-32">
