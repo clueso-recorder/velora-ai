@@ -1,0 +1,9 @@
+---
+description: Velora form and pricing UI conventions
+alwaysApply: true
+---
+
+- Prefer existing shared form and section components; do not invent parallel ones.
+- Keep the existing colour tokens; do not introduce new hex values.
+- Associate helper text with its control for screen readers (aria-describedby).
+- Prefer existing spacing and typography scales over one-off styles.
