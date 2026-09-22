@@ -58,7 +58,14 @@ export function ContactForm() {
             type="email"
             placeholder="ada@example.com"
             required
+            aria-describedby="email-reply-hint"
           />
+          <p
+            id="email-reply-hint"
+            className="text-sm text-muted-foreground"
+          >
+            Use the email where you&apos;d like us to reply.
+          </p>
         </div>
       </div>
       <div className="mt-5 grid gap-2">
