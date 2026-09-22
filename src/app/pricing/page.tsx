@@ -66,12 +66,20 @@ const faqs = [
     a: "Yes. Everything on this site — every animation, page and section — is the free tier. If your product needs one great landing site, you never have to pay us anything.",
   },
   {
+    q: "Can I use Velora in commercial products?",
+    a: "Yes. The free tier is MIT licensed — personal and commercial use, no attribution required. Pro adds a commercial license for the extra templates, Figma source and private registry.",
+  },
+  {
     q: "Is Pro a subscription?",
     a: "No. Pro is a one-time payment with lifetime access and lifetime updates. No renewals, no seat counting for small teams.",
   },
   {
     q: "How does this compare to Magic UI Pro or Aceternity Pro?",
     a: "Those run $169–$199 for templates and sections. Velora gives away a complete multi-page template for free and prices Pro at $99 — with a team license included instead of sold separately.",
+  },
+  {
+    q: "Do I have to install the whole template?",
+    a: "No. Every animation is a standard shadcn registry item. Install one component with the CLI, or clone the repo if you want the assembled pages.",
   },
   {
     q: "What happens when Pro launches?",
@@ -221,12 +229,18 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="pb-28">
+      <section id="faq" className="scroll-mt-24 pb-28">
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <BlurFade>
-            <h2 className="text-center text-3xl font-semibold tracking-tight">
-              Pricing questions
+            <p className="text-center text-sm font-medium text-primary">FAQ</p>
+            <h2 className="mt-2 text-center text-3xl font-semibold tracking-tight lg:text-4xl">
+              Frequently asked questions
             </h2>
+            <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
+              License, Pro, and what you actually get on the free tier.
+            </p>
+          </BlurFade>
+          <BlurFade delay={0.15}>
             <Accordion type="single" collapsible className="mt-10">
               {faqs.map((faq) => (
                 <AccordionItem key={faq.q} value={faq.q}>
@@ -239,8 +253,35 @@ export default function PricingPage() {
                 </AccordionItem>
               ))}
             </Accordion>
+            <p className="mt-10 text-center text-sm text-muted-foreground">
+              Still have a question?{" "}
+              <Link
+                href="/contact"
+                className="font-medium text-primary underline-offset-4 hover:underline"
+              >
+                Contact us
+              </Link>
+              .
+            </p>
           </BlurFade>
         </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.a,
+                },
+              })),
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
       </section>
 
       <SiteFooter />
