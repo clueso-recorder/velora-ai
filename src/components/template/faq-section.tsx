@@ -66,7 +66,7 @@ export function FaqSection({
       id={id}
       aria-labelledby={headingId}
       aria-describedby={descriptionId}
-      className={cn("py-24 lg:py-32", className)}
+      className={cn("scroll-mt-24 py-24 lg:py-32", className)}
     >
       {jsonLd ? <FaqJsonLd items={items} /> : null}
       <div className="mx-auto max-w-3xl px-4 lg:px-8">
