@@ -52,33 +52,35 @@ export function SiteFooter() {
             Built with Next.js 16, Tailwind CSS 4 &amp; Motion
           </p>
         </div>
-        {groups.map((group) => (
-          <nav key={group.title} aria-label={group.title}>
-            <h3 className="text-sm font-semibold">{group.title}</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-              {group.links.map((link) => (
-                <li key={link.text}>
-                  {link.href.startsWith("http") ? (
-                    <a
-                      href={link.href}
-                      rel="noopener"
-                      className="transition-colors hover:text-foreground"
-                    >
-                      {link.text}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="transition-colors hover:text-foreground"
-                    >
-                      {link.text}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+        <div className="grid grid-cols-2 gap-10 md:contents">
+          {groups.map((group) => (
+            <nav key={group.title} aria-label={group.title}>
+              <h3 className="text-sm font-semibold">{group.title}</h3>
+              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+                {group.links.map((link) => (
+                  <li key={link.text}>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        rel="noopener"
+                        className="transition-colors hover:text-foreground"
+                      >
+                        {link.text}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="transition-colors hover:text-foreground"
+                      >
+                        {link.text}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
       </div>
       <div className="mx-auto mt-12 flex max-w-6xl flex-col items-center justify-between gap-2 border-t border-border/40 px-4 pt-6 text-xs text-muted-foreground md:flex-row lg:px-8">
         <span>Velora UI — MIT licensed, free forever.</span>
