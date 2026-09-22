@@ -279,7 +279,7 @@ export default function PricingPage() {
                   text: faq.a,
                 },
               })),
-            }),
+            }).replace(/</g, "\\u003c"),
           }}
         />
       </section>
