@@ -3,15 +3,10 @@ import Link from "next/link";
 import { CheckIcon, MinusIcon, RocketIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
+import { FaqSection } from "@/components/template/faq-section";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { BorderBeam } from "@/components/velora/border-beam";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
@@ -66,8 +61,24 @@ const faqs = [
     a: "Yes. Everything on this site — every animation, page and section — is the free tier. If your product needs one great landing site, you never have to pay us anything.",
   },
   {
+    q: "Do I need Pro to use the components?",
+    a: "No. All 32+ animated components and the complete multi-page template are MIT licensed and free. Pro only adds extra niches, section variants, Figma source, and waitlist / newsletter / Stripe wiring.",
+  },
+  {
+    q: "Can I use Velora in commercial or client projects?",
+    a: "Yes. The free tier is MIT licensed — use it in client work, products you sell, and internal tools. No attribution required.",
+  },
+  {
     q: "Is Pro a subscription?",
     a: "No. Pro is a one-time payment with lifetime access and lifetime updates. No renewals, no seat counting for small teams.",
+  },
+  {
+    q: "What's included in the Pro team license?",
+    a: "Pro includes a team license, so everyone at your company can use the files. There are no per-seat fees for small teams.",
+  },
+  {
+    q: "Can I start on Free and upgrade later?",
+    a: "Yes. Free stays free forever — nothing you ship on it is taken away. When Pro launches, waitlist members get launch pricing and early access.",
   },
   {
     q: "How does this compare to Magic UI Pro or Aceternity Pro?",
@@ -220,28 +231,15 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="pb-28">
-        <div className="mx-auto max-w-3xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="text-center text-3xl font-semibold tracking-tight">
-              Pricing questions
-            </h2>
-            <Accordion type="single" collapsible className="mt-10">
-              {faqs.map((faq) => (
-                <AccordionItem key={faq.q} value={faq.q}>
-                  <AccordionTrigger className="text-left text-base">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </BlurFade>
-        </div>
-      </section>
+      <FaqSection
+        id="faq"
+        eyebrow="FAQ"
+        title="Frequently asked questions"
+        description="Free is the whole product. Here's how the plans work, what Pro adds, and when you might want it."
+        items={faqs}
+        jsonLd
+        className="pt-8 pb-28 lg:pt-12 lg:pb-32"
+      />
 
       <SiteFooter />
     </main>
