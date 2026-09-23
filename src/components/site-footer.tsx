@@ -34,7 +34,23 @@ const groups = [
   },
 ];
 
-export function SiteFooter() {
+export function SiteFooter({
+  showContactSales = false,
+}: {
+  showContactSales?: boolean;
+} = {}) {
+  const footerGroups = groups.map((group) =>
+    group.title === "Product" && showContactSales
+      ? {
+          ...group,
+          links: [
+            ...group.links,
+            { text: "Contact sales", href: "/contact" },
+          ],
+        }
+      : group,
+  );
+
   return (
     <footer className="border-t border-border/40 py-14">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
@@ -52,7 +68,7 @@ export function SiteFooter() {
             Built with Next.js 16, Tailwind CSS 4 &amp; Motion
           </p>
         </div>
-        {groups.map((group) => (
+        {footerGroups.map((group) => (
           <nav key={group.title} aria-label={group.title}>
             <h3 className="text-sm font-semibold">{group.title}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
