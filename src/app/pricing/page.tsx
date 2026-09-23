@@ -243,7 +243,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter showContactSales />
     </main>
   );
 }
