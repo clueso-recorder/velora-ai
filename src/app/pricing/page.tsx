@@ -243,7 +243,11 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter
+        links={[
+          { group: "Product", text: "Contact sales", href: "/contact" },
+        ]}
+      />
     </main>
   );
 }
