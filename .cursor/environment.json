@@ -1,0 +1,11 @@
+{
+  "name": "Velora UI",
+  "install": "bash .cursor/install.sh",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "pnpm dev --hostname 0.0.0.0 --port 3000"
+    }
+  ],
+  "ports": [3000]
+}
