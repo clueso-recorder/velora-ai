@@ -3,15 +3,17 @@ import { SparklesIcon } from "lucide-react";
 
 import { siteConfig } from "@/lib/site-config";
 
+const productLinks = [
+  { text: "Components", href: "/components" },
+  { text: "Themes", href: "/themes" },
+  { text: "Pricing", href: "/pricing" },
+  { text: "Changelog", href: "/changelog" },
+];
+
 const groups = [
   {
     title: "Product",
-    links: [
-      { text: "Components", href: "/components" },
-      { text: "Themes", href: "/themes" },
-      { text: "Pricing", href: "/pricing" },
-      { text: "Changelog", href: "/changelog" },
-    ],
+    links: productLinks,
   },
   {
     title: "Template pages",
@@ -34,7 +36,17 @@ const groups = [
   },
 ];
 
-export function SiteFooter() {
+export function SiteFooter({
+  extraProductLinks = [],
+}: {
+  extraProductLinks?: { text: string; href: string }[];
+} = {}) {
+  const footerGroups = groups.map((group) =>
+    group.title === "Product"
+      ? { ...group, links: [...group.links, ...extraProductLinks] }
+      : group,
+  );
+
   return (
     <footer className="border-t border-border/40 py-14">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
@@ -52,7 +64,7 @@ export function SiteFooter() {
             Built with Next.js 16, Tailwind CSS 4 &amp; Motion
           </p>
         </div>
-        {groups.map((group) => (
+        {footerGroups.map((group) => (
           <nav key={group.title} aria-label={group.title}>
             <h3 className="text-sm font-semibold">{group.title}</h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
