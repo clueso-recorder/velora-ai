@@ -19,7 +19,7 @@ export default function NotFound() {
               <AnimatedGradientText>404</AnimatedGradientText>
             </p>
             <h1 className="mt-6 text-2xl font-semibold tracking-tight lg:text-3xl">
-              This page scrolled past the horizon
+              Page not found
             </h1>
             <p className="mx-auto mt-4 max-w-md text-muted-foreground">
               The page you&apos;re looking for doesn&apos;t exist or was moved.
